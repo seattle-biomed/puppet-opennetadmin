@@ -1,0 +1,41 @@
+#####################################################################################
+##  This is the configuration file for dcm.pl
+##  Syntax:
+##    The syntax of this file is fairly tolerant.  Each section starts with [section]
+##    and configuration settings are specified in "key => value" pairs.
+##    Comments are permitted anywhere in the file - see the comments section below.
+#####################################################################################
+
+[networking]
+    ## Web server to connect to.
+    url                      => <%= @dcm_url %>
+    allow-http-fallback      => 1
+
+    ## Basic HTTP Authentication
+    # By default not specifying a user here will cause the username to be
+    # dcm.pl.  This username would need to be configured in ONA and granted
+    # proper access.  You can always pass the -l and -p CLI options or
+    # use the DCM_LOGIN_USER and DCM_LOGIN_PASS ENV variables.
+    #
+    # Use local unix username as the login
+    #login                    => $conf{'unix_username'}
+    #
+    // login                  => username
+    // passwd                 => password
+
+    ## timeouts for any/all network connections (360 seconds)
+    timeout                  => 360
+
+[logging]
+
+    ## print to STDOUT (can work in conjunction with "syslog" and "logfile")
+    stdout                   => 1
+
+    ## log to syslogd (can work in conjunction with "stdout" and "logfile")
+    syslog                   => 0
+
+    ## syslog facility (1/USER is the default)
+    facility                 => 1
+
+    ## enable logging to the specified file (can work in conjunction with "syslog" and "stdout")
+    logFile                  => <%= @log_file %>

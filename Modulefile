@@ -1,0 +1,8 @@
+name    'puppet-opennetadmin'
+version '0.0.1'
+source ''
+author 'atom.powers@seattlebiomed.org'
+license 'Apache License, Version 2.0'
+summary 'Setup OpenNetAdmin'
+description 'Download, Install, Configure OpenNetAdmin application.'
+project_page 'https://github.com/seattle-biomed/puppet-opennetadmin'
