@@ -56,7 +56,7 @@ class opennetadmin (
 
   ## Log File
   file { '/var/log/ona.log':
-    ensure  => file
+    ensure  => file,
     owner   => $ona_owner,
     group   => $ona_group,
     mode    => '0644',

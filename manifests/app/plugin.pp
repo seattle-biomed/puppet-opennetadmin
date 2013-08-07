@@ -11,17 +11,15 @@
 define opennetadmin::app::plugin (
   $download_url   = undef,
   $ensure         = 'present',
-  $install_dir    = $opennetadmin::install_dir
+  $install_dir    = $opennetadmin::install_dir,
   $ona_owner      = $opennetadmin::ona_owner,
   $ona_group      = $opennetadmin::ona_group,
-) inherits opennetadmin::params {
+) {
 
+  include '::opennetadmin::params'
   $plugin_dir     = "${install_dir}/www/local/plugins"
 
   # Default download location.
-  if !defined($download_url) {
-    $download_url   = "https://github.com/opennetadmin/${name}/archive/master.zip"
-  }
   $download_file  = "${name}.zip"
 
   Exec {
@@ -37,7 +35,6 @@ define opennetadmin::app::plugin (
 
   } else {
 
-    include opennetadmin::params
     $unzip_package = $opennetadmin::params::unzip_package
 
     if !defined(Package[$unzip_package]) {
