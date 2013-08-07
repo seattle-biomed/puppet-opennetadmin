@@ -13,82 +13,82 @@ and web server is beyond the scope of this module.
 
 Parameters
 ----
-[*version*]
+*version*:
  Optional. The version of Open Net Admin to install.
  Default: 'current'; any other value also requires $install_url.
 
-[*install_dir*]
+*install_dir*:
   Optional. Location to install Open Net Admin.
   Default: '/opt/ona'.
 
-[*install_url*]
+*install_url*:
   OPtional. URL to use to download application files.
   Default: 'http://github.com/opennetadmin/ona/archive'
 
-[*ona_owner*]
+*ona_owner*:
   Recomended. The system account which will own the ONA application files.
   Default: 'root'
 
-[*ona_group*]
+*ona_group*:
   Recomended. The system group ID which will own the ONA application files.
   Default: '0'
 
-[*auto_setup*]
+*auto_setup*:
   Optional. If true, try to configure the application automatically by building
   the database settings file and using curl to post parameters to the install
   script.
   Default: false
 
-[*default_domain*]
+*default_domain*:
   Recomended when $auto_setup is true. The name of the default domain used when
   performing automatic setup.
   Default: 'localhost'; which probably isn't valid.
 
-[*admin_user*]
+*admin_user*:
   Optional when $auto_setup is true. The name of the initial administrator account.
   Default: 'admin'
 
-[*admin_password*]
+*admin_password*:
   Optional when $auto_setup is true. The password for the initial administrator account.
   Default: 'admin'
 
-[*db_name*]
+*db_name*:
   Optional when $auto_setup is true. The name of the database that ONA will use.
   Default: 'ona_default'
 
-[*db_host*]
+*db_host*:
   Optional when $auto_setup is true. The name of the database server.
   Default: 'localhost'
 
-[*db_user*]
+*db_user*:
   Optional when $auto_setup is true. The name ONA will use to connect to the database.
   Default: 'ona_sys'
 
-[*db_password*]
+*db_password*:
   Recomended when $auto_setup is true. The password ONA will use to connect to the database.
   Default: 'password'
 
-[*include_dcm*]
+*include_dcm*:
   Optional. If true, download and install DCM.
   Default: true
 
-[*dcm_install_url*]
+*dcm_install_url*:
   Optional when $include_dcm is true. Download location of the DCM install files.
   Default: 'https://raw.github.com/opennetadmin/dcm/master'
 
-[*dcm_log_file*]
+*dcm_log_file*:
   Optional when $include_dcm is true. Location of the DCM log file.
   Default: '/var/log/dcm.log'
 
-[*ona_url*]
+*ona_url*:
   Optional when $include_dcm is true. Where DCM will look for dcm.php.
   Default: 'http://localhost/ona'
 
-[*enable_nmap*]
+*enable_nmap*:
   Optional. If true, install and configure the pre-packaged ona_nmap_scans plugin.
   Default: false
 
-[*nmap_all_nets*]
+*nmap_all_nets*:
   Optional when $enable_nmap is true. Configure the cron job to scan all subnets
   that are not specifically configured.
   Default: false

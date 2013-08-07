@@ -34,7 +34,7 @@ class opennetadmin::app::dcm (
 
   ## Log File
   file { $log_file:
-    ensure  => file
+    ensure  => file,
     owner   => $ona_owner,
     group   => $ona_group,
     mode    => '0644',
@@ -42,7 +42,7 @@ class opennetadmin::app::dcm (
 
   ## Configuration file
   file {"${ona_directory}/etc/dcm.conf":
-    ensure  => 'present'
+    ensure  => 'present',
     content => template('opennetadmin/dcm.conf.erb'),
     require => File[$ona_directory],
   }
@@ -56,7 +56,7 @@ class opennetadmin::app::dcm (
   -> file { "${ona_directory}/bin/dcm.pl": mode => '0555' }
   -> file { '/usr/local/bin/dcm.pl':
     ensure  => link,
-    target  => "${ona_directory}/bin/dcm.pl"
+    target  => "${ona_directory}/bin/dcm.pl",
   }
 
 }

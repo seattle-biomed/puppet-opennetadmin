@@ -30,7 +30,7 @@ class opennetadmin::app::nmap_plugin (
   }
 
   file { "${install_dir}/www/plugins/ona_nmap_scans":
-    user      => $ona_owner,
+    owner     => $ona_owner,
     group     => $ona_group,
     mode      => '0644'
   }
