@@ -42,14 +42,13 @@ class opennetadmin::app::nmap_plugin (
   file { "${plugin_dir}/ona_nmap_scans":
     ensure    => directory,
   }
-  -> file { "${install_dir}/www/local/nmap_scans/subnets/nmap.xsl":
-    ensure  => link,
-    target  => "${plugin_dir}/ona_nmap_scans/nmap.xsl"
+  file { "${plugin_dir}/ona_nmap_scans/subnets":
+    ensure    => directory,
   }
-#  exec { 'copy-ona-nmap-plugin-map.xls':
-#    command => "cp ${install_dir}/www/plugins/ona_nmap_scans/nmap.xsl ${install_dir}/www/local/nmap_scans/subnets/nmap.xsl"
-#    creates => "${install_dir}/www/local/nmap_scans/subnets/nmap.xsl"
-#  }
+  -> file { "${plugin_dir}/ona_nmap_scans/subnets/nmap.xsl":
+    ensure  => link,
+    target  => "${install_dir}/www/plugins/ona_nmap_scans/nmap.xsl"
+  }
 
   file { "${install_dir}/bin/nmap_scan_cron":
     ensure  => link,
