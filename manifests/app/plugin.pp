@@ -16,7 +16,7 @@ define opennetadmin::app::plugin (
   $ona_group      = $opennetadmin::ona_group,
 ) {
 
-  include '::opennetadmin::params'
+  include 'opennetadmin::params'
   $plugin_dir     = "${install_dir}/www/local/plugins"
 
   # Default download location.
@@ -48,7 +48,7 @@ define opennetadmin::app::plugin (
       require => Exec['extract-opennetadmin-pkg'],
     }
     -> exec { "extract-opennetadmin-plugin-${name}":
-      command => "unzip ${download_file}",
+      command => "unzip ${download_file} -d ${name}",
       creates => "${plugin_dir}/${name}",
       require => Package[$unzip_package],
     }

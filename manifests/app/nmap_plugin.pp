@@ -29,16 +29,22 @@ class opennetadmin::app::nmap_plugin (
     group     => $ona_group,
   }
 
-  file { "${install_dir}/www/plugins/ona_nmap_scans":
+  File {
     owner     => $ona_owner,
     group     => $ona_group,
     mode      => '0644'
   }
 
-  # These two commands may be unnecessary after the above
-  file { "${install_dir}/www/local/nmap_scans/subnets/nmap.xsl":
+  file { "${plugin_dir}":
+    ensure    => directory,
+  }
+
+  file { "${plugin_dir}/ona_nmap_scans":
+    ensure    => directory,
+  }
+  -> file { "${install_dir}/www/local/nmap_scans/subnets/nmap.xsl":
     ensure  => link,
-    target  => "${install_dir}/www/plugins/ona_nmap_scans/nmap.xsl"
+    target  => "${plugin_dir}/ona_nmap_scans/nmap.xsl"
   }
 #  exec { 'copy-ona-nmap-plugin-map.xls':
 #    command => "cp ${install_dir}/www/plugins/ona_nmap_scans/nmap.xsl ${install_dir}/www/local/nmap_scans/subnets/nmap.xsl"
