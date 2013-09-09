@@ -50,7 +50,10 @@ class opennetadmin::app::nmap_plugin (
     target  => "${install_dir}/www/plugins/ona_nmap_scans/nmap.xsl"
   }
 
-  file { "${install_dir}/bin/nmap_scan_cron":
+  file { "${install_dir}/www/plugins/ona_nmap_scans/nmap_scan_cron":
+    mode => '0555'
+  }
+  -> file { "${install_dir}/bin/nmap_scan_cron":
     ensure  => link,
     target  => "${install_dir}/www/plugins/ona_nmap_scans/nmap_scan_cron"
   }

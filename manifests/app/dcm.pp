@@ -9,6 +9,8 @@ class opennetadmin::app::dcm (
   $ona_owner      = $opennetadmin::ona_owner,
   $ona_group      = $opennetadmin::ona_group,
   $log_file       = '/var/log/dcm.log'
+  $admin_user     = $opennetadmin::admin_user,
+  $admin_password = $opennetadmin::admin_password
 ) {
   include 'opennetadmin::params'
 
@@ -37,7 +39,7 @@ class opennetadmin::app::dcm (
     ensure  => file,
     owner   => $ona_owner,
     group   => $ona_group,
-    mode    => '0644',
+    mode    => '0664',
   }
 
   ## Configuration file

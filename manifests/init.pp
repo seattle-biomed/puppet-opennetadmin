@@ -83,6 +83,8 @@ class opennetadmin (
       ona_url        => $ona_url,
       install_url    => $dcm_install_url,
       log_file       => $dcm_log_file,
+      admin_user     => $admin_user,
+      admin_password => $admin_password
     }
     Class['opennetadmin::app'] -> Class['opennetadmin::app::dcm']
   }
