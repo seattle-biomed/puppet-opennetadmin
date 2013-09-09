@@ -8,7 +8,7 @@ class opennetadmin::app::dcm (
   $install_url    = 'https://raw.github.com/opennetadmin/dcm/master',
   $ona_owner      = $opennetadmin::ona_owner,
   $ona_group      = $opennetadmin::ona_group,
-  $log_file       = '/var/log/dcm.log'
+  $log_file       = '/var/log/dcm.log',
   $admin_user     = $opennetadmin::admin_user,
   $admin_password = $opennetadmin::admin_password
 ) {
