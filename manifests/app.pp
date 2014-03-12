@@ -45,9 +45,7 @@ class opennetadmin::app (
     group     => $ona_group,
   }
 
-  if !defined(Package[$opennetadmin::params::wget_package]) {
-    package { $opennetadmin::params::wget_package : ensure => 'present' }
-  }
+  ensure_resource ( package, $opennetadmin::params::wget_package, { ensure => 'installed' } )
 
   ## Installation directory
   file { $install_dir:
