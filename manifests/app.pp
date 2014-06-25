@@ -31,6 +31,9 @@ class opennetadmin::app (
 ) {
   include 'opennetadmin::params'
 
+  # Requeired PHP libraries
+  ensure_packages(['php5-gmp',$opennetadmin::params::wget_package])
+
   ## Resource defaults
   File {
     owner  => $ona_owner,
@@ -44,8 +47,6 @@ class opennetadmin::app (
     user      => $ona_owner,
     group     => $ona_group,
   }
-
-  ensure_resource ( package, $opennetadmin::params::wget_package, { ensure => 'installed' } )
 
   ## Installation directory
   file { $install_dir:
@@ -71,10 +72,5 @@ class opennetadmin::app (
     creates => "${install_dir}/www/index.php",
   }
   -> file { '/etc/onabase': content => "${install_dir}\n" }
-
-  # Requeired PHP libraries
-  if !defined(Package['php5-gmp']) {
-    package{'php5-gmp': ensure=>'installed' }
-  }
 
 }
