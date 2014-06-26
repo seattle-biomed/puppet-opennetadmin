@@ -46,6 +46,6 @@ class opennetadmin::app::setup (
     require     => [Package[$opennetadmin::params::curl_package],Service['httpd']],
     refreshonly => true,
     logoutput   => true,
-    subscribe   => File['ona-database-settings'],
+    subscribe   => File["${ona_directory}/www/local/config/database_settings.inc.php"],
   }
 }
