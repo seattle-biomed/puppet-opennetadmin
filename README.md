@@ -109,7 +109,7 @@ Example
 
     'opennetadmin::app::plugin' { 'build_bind': ensure => 'installed'}
 
-Heira Example
+Hiera Example
 ----
 
     ---
